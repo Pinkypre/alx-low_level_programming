@@ -1,5 +1,4 @@
-nclude "main.h"
-
+#include "main.h"
 /**
  * _pow_recursion - Returns the value of x raised y.
  * @x: The number to be raised.
