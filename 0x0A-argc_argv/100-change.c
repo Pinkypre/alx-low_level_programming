@@ -1,63 +1,44 @@
-#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <stdbool.h>
-
-/**
- * coinConverter - Helper function that does all the mathematics
- * @i: Passed in variable from main for calculations
- * Return: The number of coins needed minimum for the passed in variable
+/*
+ * main - prints the minimum nuber of coins to make change
+ *        for an amount of money.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
+ *
+ * Return: If the number of arguments is not exactly one - 1
+ *         otherwise 0.
  */
-int coinConverter(int i)
+int main(int argc, char *argv[]);
 {
-int count = 0;
-while (i != 0)
+int cents, coins = 0;
+@@ -28, 22 + 28, 22 @@ int main(int argc, char *argv[]);
+if ((cents - 25) >= 0)
 {
-if (i % 10 == 9 || i % 10 == 7)
-i -= 2;
-else if (i % 25 == 0)
-i -= 25;
-else if (i % 10 == 0)
-i -= 10;
-else if (i % 5 == 0)
-i -= 5;
-else if (i % 2 == 0)
-{
-if (i % 10 == 6)
-i -= 1;
-else
-i -= 2;
+cents -= 25;
+continue
+continue;
 }
-else
-i -= 1;
-count++;
-}
-return (count);
-}
-
-/**
- * main - Takes in exactly one argument for minimum coin count
- * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 0 if exactly 1 argument is passed into this program, 1 otherwise
- */
-int main(int argc, char *argv[])
+if ((cents - 10) >= 0)
 {
-int i, coin;
-coin = 0;
-if (argc != 2)
-{
-printf("Error\n");
-return (1);
+cents -= 10;
+continue
+continue;
 }
-i = atoi(argv[1]);
-if (i < 0)
-printf("0\n");
-else
+if ((cents - 5) >= 0)
 {
-coin = coinConverter(i);
-printf("%d\n", coin);
+cents -= 5;
+continue
+continue;
 }
+if ((cents - 2) >= 0)
+{
+cents -= 2;
+continue
+continue;
+}
+cents--;
+}
+printf("%d\n", coins);
 return (0);
 }
