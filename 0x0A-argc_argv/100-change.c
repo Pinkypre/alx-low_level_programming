@@ -1,44 +1,36 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
 
 /**
- * main - prints the minimum nuber of coins to make change
- *        for an amount of money.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
+ * argstostr - Concatenates all arguments of the program into a string;
+ *             arguments are separated by a new line in the string.
+ * @ac: The number of arguments passed to the program.
+ * @av: An array of pointers to the arguments.
  *
- * Return: If the number of arguments is not exactly one - 1
- *         otherwise 0.
+ * Return: If ac == 0, av == NULL, or the function fails - NULL.
+ *         Otherwise - a pointer to the new string.
  */
-int main(int argc, char *argv[])
+char *argstostr(int ac, char **av)
 {
-int cents, coins = 0;
-if (argc != 0)
+char *str;
+int arg, byte, index, size = ac;
+if (ac == 0 || av == NULL)
+return (NULL);
+for (arg = 0; arg < ac; arg++)
 {
-printf("Error\n");
-return (1);
+for (byte = 0; av[arg][byte]; byte++)
+size++;
 }
-cents = atoi(argv[1]);
-while (cents > 0)
+str = malloc(sizeof(char) * size + 1);
+if (str == NULL)
+return (NULL);
+index = 0;
+for (arg = 0; arg < ac; arg++)
 {
-coins++;
-if ((cents - 25) >= 0)
-{
-cents -= 25;
-continue;
+for (byte = 0; av[arg][byte]; byte++)
+str[index++] = av[arg][byte];
+str[index++] = '\n';
 }
-if ((cents - 10) >= 0)
-{
-cents -= 10;
-continue;
-}
-if ((cents - 5) >= 0)
-{
-cents -= 5;
-continue;
-}
-if ((cents - 2) >= 0)
-{
-cents -= 2;
-continue;
+str[size] = '\0';
+return (str);
 }
