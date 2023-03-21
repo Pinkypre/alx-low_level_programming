@@ -1,13 +1,12 @@
-#include &quot;main.h&quot;
+#include "main.h"
 /**
-* _strpbrk - Entry point
-* @s: input
-* @accept: input
-* Return: Always 0 (Success)
-*/
+ * _strpbrk - Entry point
+ * @s: input
+ * @accept: input
+ * Return: Always 0 (Success)
+ */
 char *_strpbrk(char *s, char *accept)
 {
-
 int k;
 while (*s)
 {
@@ -18,5 +17,5 @@ return (s);
 }
 s++;
 }
-return (&#39;\0&#39;);
+return ('\0');
 }
