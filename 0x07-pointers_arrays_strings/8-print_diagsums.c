@@ -1,12 +1,11 @@
-#include &quot;main.h&quot;
-#include &lt;stdio.h&gt;
+#include "main.h"
+#include <stdio.h>
 /**
-* print_diagsums - Entry point
-* @a: input
-* @size: input
-* Return: Always 0 (Success)
-*/
-
+ * print_diagsums - Entry point
+ * @a: input
+ * @size: input
+ * Return: Always 0 (Success)
+ */
 void print_diagsums(int *a, int size)
 {
 int sum1, sum2, y;
