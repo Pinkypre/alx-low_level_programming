@@ -2,7 +2,7 @@
 
 /**
  * dlistint_len - returns the number of elements in a linked lists
- * @h: linked list of type listint_t to traverse
+ * @h: pointer to the lists
  *
  * Return: number of nodes
  */
